@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Política da página: scripts apenas deste projeto, sem scripts de terceiros na interface; imagens, conexões e iframes só das origens usadas pelo hub. Não filtra recursos internos dos jogos incorporados. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src blob:; img-src 'self' data: blob: https://cdn.jsdelivr.net https://github.com https://img.itch.zone https://infinity.unstable.life https://is1-ssl.mzstatic.com https://jumbomario.neocities.org https://osu.ppy.sh https://picon.ngfiles.com https://play-lh.googleusercontent.com https://pokemerald.com https://raw.githubusercontent.com https://selenite.cc https://shared.fastly.steamstatic.com https://static.games.yandex.net https://www.neweichgames.com https://www.nitrome.com; connect-src https://db.duck.quackprep.com https://dubdoo.com https://emupedia.net https://fnaffree.io https://mathlesson.github.io https://owlcraft.raymondjxu.net https://selenite.cc https://stickpage.com https://truffled.lol https://www.newgrounds.com https://yandex.com.tr; frame-src https://audiomack.com/embed/ https://db.duck.quackprep.com https://dubdoo.com https://emupedia.net https://fnaffree.io https://mathlesson.github.io https://owlcraft.raymondjxu.net https://selenite.cc https://stickpage.com https://truffled.lol https://www.newgrounds.com https://yandex.com.tr; form-action 'none'">
+  <meta name="theme-color" content="#081327">
+  <meta name="application-name" content="BL3SS">
+  <meta name="description" content="BL3SS: jogos de navegador, aplicativos e BlessSounds para explorar músicas e ouvir seus arquivos.">
+  <meta property="og:site_name" content="BL3SS">
+  <title>BL3SS · Hub de Jogos</title>
+  <!-- Ícone da aba: o monograma B/3 da marca, com PNG de compatibilidade. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icones/bl3ss.png">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="./assets/icones/bl3ss.svg">
+  <!-- BL3SS | Site estático. Visual em style.css; capas e fontes em assets/; listas em catalogo.js. -->
+  <link rel="stylesheet" href="./style.css">
+  <script src="./catalogo.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <!-- Biblioteca de ícones SVG, sem dependências externas. -->
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Identidade BL3SS: haste de B e número 3 com as mesmas quinas. -->
+    <symbol id="i-bl3ss" viewBox="0 0 64 64">
+      <defs>
+        <linearGradient id="bl3ss-plate" x1="0" y1="0" x2="1" y2="1">
+          <stop stop-color="#16314a"/>
+          <stop offset="1" stop-color="#071323"/>
+        </linearGradient>
+      </defs>
+      <path d="M13 1.5h34l15.5 15.5v34A11.5 11.5 0 0 1 51 62.5H17L1.5 47V13A11.5 11.5 0 0 1 13 1.5Z" fill="url(#bl3ss-plate)" stroke="currentColor" stroke-opacity=".46" stroke-width="2"/>
+      <path d="M22 12h18l9 9v7l-4 4 4 4v7l-9 9H22v-8h15l4-4v-4H22v-8h19v-4l-4-4H22Z" fill="currentColor"/>
+      <path d="m15 20 8-8v40l-8-8Z" fill="#f0f9ff"/>
+    </symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 19Z"/><path d="M9 20.5v-7h6v7"/></symbol>
+    <symbol id="i-game" viewBox="0 0 24 24"><path d="M6.9 6h10.2a4 4 0 0 1 3.9 3.15l1.02 4.88a3.15 3.15 0 0 1-5.35 2.8L15 15H9l-1.67 1.83a3.15 3.15 0 0 1-5.35-2.8L3 9.15A4 4 0 0 1 6.9 6Z"/><path d="M7.5 8.85v4.3m-2.15-2.15h4.3"/><circle cx="15.8" cy="10" r=".85" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r=".85" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3.25" y="3.25" width="17.5" height="17.5" rx="4"/><path d="M8 8h.01m8 0h.01m-4 4h.01m-4 4h.01m8 0h.01" stroke-width="2.8"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="6.2" height="6.2" rx="1.35"/><rect x="14.3" y="3.5" width="6.2" height="6.2" rx="1.35"/><rect x="3.5" y="14.3" width="6.2" height="6.2" rx="1.35"/><rect x="14.3" y="14.3" width="6.2" height="6.2" rx="1.35"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v12M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="15.5" rx="3" ry="2.5"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M10 3h4l.65 2.2 1.46.85 2.23-.53 2 3.46-1.57 1.69v1.68l1.57 1.69-2 3.46-2.23-.53-1.46.85L14 20h-4l-.65-2.18-1.46-.85-2.23.53-2-3.46 1.57-1.69v-1.68L3.66 8.98l2-3.46 2.23.53 1.46-.85L10 3Z" transform="translate(0 .5)"/><circle cx="12" cy="12" r="2.65"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1.3a1.8 1.8 0 0 0 1.4-2.9 1.8 1.8 0 0 1 1.4-2.9H18A3 3 0 0 0 21 12a9 9 0 0 0-9-9Z"/><path d="M7.2 11.3h.01M10 7.2h.01M14 7.2h.01M17 10h.01" stroke-width="2.7"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s7.5-3.2 7.5-9.7v-6L12 3 4.5 6.3v6C4.5 18.8 12 22 12 22Z"/><path d="m8.7 12.4 2.1 2.1 4.5-4.6"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h5m5 0h6M4 12h10m5 0h1M4 18h2m5 0h9"/><circle cx="11.5" cy="6" r="2.5"/><circle cx="16.5" cy="12" r="2.5"/><circle cx="8.5" cy="18" r="2.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.75" cy="10.75" r="6.25"/><path d="m15.2 15.2 4.3 4.3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M13 5h6v6m0-6-9 9m8 0v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 16-.65 4.65L8 20 19.38 8.62a1.5 1.5 0 0 0 0-2.12L17.5 4.62a1.5 1.5 0 0 0-2.12 0L4 16Zm9.5-9.5 4 4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.2a.9.9 0 0 0-1.38.76v12.08a.9.9 0 0 0 1.38.76l10-6.04a.9.9 0 0 0 0-1.52Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 5.5v13m6-13v13" stroke-width="3"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="M6 5v14m12-13.5-9 6.5 9 6.5Z"/></symbol>
+    <symbol id="i-fullscreen" viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5m-5 11h5v-5M4 15v5h5"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M18 5v14M6 5.5l9 6.5-9 6.5Z"/></symbol>
+    <symbol id="i-headphones" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 1 1 16 0v2"/><rect x="3.5" y="12.5" width="4.5" height="7" rx="1.5"/><rect x="16" y="12.5" width="4.5" height="7" rx="1.5"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M4 10v4m4-7v10m4-13v16m4-12v8m4-6v4"/></symbol>
+    <symbol id="i-blesssounds" viewBox="0 0 24 24"><path d="M4.5 5h6a3.5 3.5 0 0 1 0 7h-6m0-7v14h7a3.5 3.5 0 1 0 0-7m7.5-3.5v7m3-5v3"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3V9Zm13-.5a5 5 0 0 1 0 7m2.5-9.5a8.5 8.5 0 0 1 0 12"/></symbol>
+    <symbol id="i-volume-off" viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3V9Zm13 1 4 4m0-4-4 4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8"/><ellipse cx="12" cy="12" rx="4" ry="8.8"/><path d="M3.2 12h17.6"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 13.9 4-4m-7.1 6.9-1.15 1.15a3.3 3.3 0 0 1-4.67-4.67l4.15-4.15a3.3 3.3 0 0 1 4.67 0m4.22 5.74a3.3 3.3 0 0 0 4.67 0l4.15-4.15a3.3 3.3 0 0 0-4.67-4.67l-1.15 1.15" transform="translate(1 0) scale(.92 1)"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4m-4 4 4-4 4 4M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9" r="1.5"/><path d="m4 17 4-4 3 2 4.5-5 5 6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20v-1.4a5.3 5.3 0 0 1 5.3-5.3h4.4a5.3 5.3 0 0 1 5.3 5.3V20"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v5m4-5v5"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 5v5h5M4.6 10a7.7 7.7 0 1 1 .6 6.4"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2.5 2.6 6.9 6.9 2.6-6.9 2.6-2.6 6.9-2.6-6.9L2.5 12l6.9-2.6L12 2.5Z"/></symbol>
+    <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2.5" y="5.8" width="19" height="12.4" rx="2.5"/><path d="M6 9.7h.01m4 0h.01m4 0h.01m4 0h.01M6 14h.01m4 0h8"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M22 7.05a2.7 2.7 0 0 0-1.89-1.91C18.45 4.7 12 4.7 12 4.7s-6.45 0-8.11.44A2.7 2.7 0 0 0 2 7.05a28 28 0 0 0 0 9.9 2.7 2.7 0 0 0 1.89 1.91c1.66.44 8.11.44 8.11.44s6.45 0 8.11-.44A2.7 2.7 0 0 0 22 16.95a28 28 0 0 0 0-9.9Z"/><path fill="#fff" stroke="none" d="M10 8.95v6.1L15.35 12Z"/></symbol>
+    <symbol id="i-discord" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M19.47 5.37a17.6 17.6 0 0 0-4.28-1.33l-.53 1.04a16 16 0 0 0-5.31 0L8.8 4.04a17 17 0 0 0-4.3 1.34C1.78 9.38 1 13.27 1.4 17.1a17.8 17.8 0 0 0 5.27 2.62c.43-.57.79-1.16 1.11-1.78-.62-.24-1.17-.53-1.7-.85l.41-.32c3.55 1.63 7.48 1.63 11 0l.41.32c-.56.34-1.13.62-1.7.85.32.62.68 1.21 1.11 1.78a17.8 17.8 0 0 0 5.27-2.62c.48-4.41-.79-8.26-3.11-11.73ZM8.34 14.64c-1.07 0-1.93-.96-1.93-2.14 0-1.2.85-2.15 1.93-2.15s1.95.97 1.93 2.15c0 1.18-.85 2.14-1.93 2.14Zm7.3 0c-1.07 0-1.93-.96-1.93-2.14 0-1.2.85-2.15 1.93-2.15s1.95.97 1.93 2.15c0 1.18-.85 2.14-1.93 2.14Z"/></symbol>
+    <symbol id="i-spotify" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="M6.5 9.05a12.7 12.7 0 0 1 11.12 1.1m-10.4 2a10.1 10.1 0 0 1 9.2.82m-8.48 2.11a7.9 7.9 0 0 1 7.53.64" stroke="#08251c" stroke-width="1.5"/></symbol>
+    <symbol id="i-twitch" viewBox="0 0 24 24"><path d="M5 3h16v11l-4 4h-4l-4 3v-3H5Z"/><path d="M12 7v5m4-5v5"/></symbol>
+    <symbol id="i-steam" viewBox="0 0 24 24"><path d="m2 14 5.2 2.25m4.65 1.5 5.75-5.15m-7.19 2.47 3.23-5.35"/><circle cx="17" cy="8.5" r="4.2"/><circle cx="17" cy="8.5" r="1.8"/><circle cx="9.2" cy="17.5" r="2.7"/></symbol>
+    <symbol id="i-itch" viewBox="0 0 24 24"><path d="M4 10v9a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-9M3 9l2-5h14l2 5v1.4A1.6 1.6 0 0 1 19.4 12 2 2 0 0 1 17 10.8 2.8 2.8 0 0 1 12 11a2.8 2.8 0 0 1-5-.2A2 2 0 0 1 4.6 12 1.6 1.6 0 0 1 3 10.4Z"/><path d="M8.5 16h2M9.5 15v2m5.5-1h.01m2 .6h.01"/></symbol>
+  </svg>
+
+  <div id="wallpaper" class="wallpaper" aria-hidden="true"></div>
+  <div class="wall-overlay" aria-hidden="true"></div>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <aside class="rail" aria-label="Barra lateral">
+    <a href="#inicio" data-route="inicio" class="rail-logo" aria-label="BL3SS · Início"><svg class="brand-icon" aria-hidden="true" focusable="false"><use href="#i-bl3ss"/></svg></a>
+    <span class="rail-rule"></span>
+    <!-- Navegação estática e SPA -->
+    <nav id="primary-nav" aria-label="Navegação principal">
+      <a class="nav-link" href="#inicio" data-route="inicio" aria-label="Início" aria-current="page"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-home"/></svg><span class="nav-tip" aria-hidden="true">Início</span></a>
+      <a class="nav-link" href="#games" data-route="games" aria-label="Games"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-game"/></svg><span class="nav-tip" aria-hidden="true">Games</span></a>
+      <a class="nav-link" href="#random" data-route="random" aria-label="Random Games"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-dice"/></svg><span class="nav-tip" aria-hidden="true">Random Games</span></a>
+      <a class="nav-link" href="#apps" data-route="apps" aria-label="Apps"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-grid"/></svg><span class="nav-tip" aria-hidden="true">Apps</span></a>
+      <a class="nav-link" href="#musica" data-route="musica" aria-label="Música"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-music"/></svg><span class="nav-tip" aria-hidden="true">Música</span></a>
+      <a class="nav-link nav-setting" href="#configuracoes" data-route="configuracoes" aria-label="Configurações"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg><span class="nav-tip" aria-hidden="true">Configurações</span></a>
+    </nav>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar">
+      <a href="#inicio" data-route="inicio" class="wordmark" aria-label="BL3SS · Início">
+        <svg class="brand-icon mobile-mark" aria-hidden="true" focusable="false"><use href="#i-bl3ss"/></svg>
+        <span class="word-name">BL<span class="word-accent">3</span>SS</span><span class="word-separator" aria-hidden="true"></span><span class="word-caption">HUB DE JOGOS</span>
+      </a>
+      <div class="header-tools">
+        <a href="#musica" data-route="musica" class="icon-btn header-audio" id="header-audio" aria-label="BlessSounds · Música" title="BlessSounds">
+          <svg class="icon" aria-hidden="true"><use href="#i-blesssounds"/></svg>
+        </a>
+        <a href="#configuracoes" data-route="configuracoes" class="customize" aria-label="Personalizar" title="Personalizar">
+          <svg class="icon"><use href="#i-sliders"/></svg><span>Personalizar</span>
+        </a>
+        <a href="#configuracoes" data-route="configuracoes" class="avatar" id="avatar" aria-label="Configurar perfil" title="Configurar perfil"><svg class="icon"><use href="#i-user"/></svg></a>
+      </div>
+    </header>
+
+    <main id="conteudo" class="main" tabindex="-1">
+      <span id="inicio" class="route-anchor" aria-hidden="true"></span> <span id="games" class="route-anchor" aria-hidden="true"></span> <span id="random" class="route-anchor" aria-hidden="true"></span> <span id="apps" class="route-anchor" aria-hidden="true"></span> <span id="musica" class="route-anchor" aria-hidden="true"></span> <span id="configuracoes" class="route-anchor" aria-hidden="true"></span>
+      <section id="view-inicio" data-page="inicio" class="view home-view" aria-labelledby="home-title">
+        <div class="home-hero">
+          <button type="button" class="btn btn-secondary home-cache-btn" id="home-clear-cache" aria-haspopup="dialog"><svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg> Limpar Cache</button>
+          <div class="hero-tag"><span class="live-dot"></span><span id="hero-label">SEU PONTO DE PARTIDA</span></div>
+          <h1 class="clock-line" id="home-title"><time id="clock"><span id="hours">00</span><span class="clock-colon">:</span><span id="minutes">00</span></time></h1>
+          <time id="date-label" class="clock-date"></time>
+          <div class="home-search-wrap">
+            <form id="home-search" class="searchbox glass" role="search" autocomplete="off">
+              <svg class="icon search-icon"><use href="#i-search"/></svg>
+              <label for="search-main" class="sr-only">Buscar na web ou no BL3SS</label>
+              <input id="search-main" name="busca" type="search" placeholder="Buscar na web ou no BL3SS" aria-controls="search-suggestions" autocomplete="off">
+              <button class="keyboard-hint" id="key-hint" type="button" aria-label="Focar busca (Control ou Command + K)"><kbd id="key-mod">Ctrl</kbd><kbd>K</kbd></button>
+              <button class="search-submit" type="submit" aria-label="Buscar na web" title="Buscar na web"><svg class="icon"><use href="#i-arrow"/></svg></button>
+            </form>
+            <div class="search-results glass" id="search-suggestions" hidden></div>
+          </div>
+        </div>
+
+        <section class="quick-section" aria-labelledby="quick-title">
+          <div class="section-row quick-heading">
+            <h2 id="quick-title">Acesso rápido</h2>
+            <button class="text-btn" id="edit-shortcuts" type="button" aria-pressed="false"><svg class="icon"><use href="#i-edit"/></svg><span>Editar atalhos</span></button>
+          </div>
+          <div class="quick-grid" id="quick-grid"></div>
+        </section>
+
+        <section class="feature-section" aria-labelledby="feature-title">
+          <div class="section-row feature-heading">
+            <div><p class="eyebrow"><span></span> CENTRAL DE JOGOS</p><h2 id="feature-title">Em destaque</h2></div>
+            <a class="btn btn-secondary feature-link" href="#games" data-route="games">Ver todos os games <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="card-grid" id="feature-grid"></div>
+        </section>
+      </section>
+
+      <section id="view-games" data-page="games" class="view" aria-labelledby="games-title">
+        <div class="page-heading"><p class="eyebrow"><span></span> BIBLIOTECA</p><h1 id="games-title">Games<span>.</span></h1><p>Escolha um jogo da coleção. Os que não abrem no player podem abrir em outra aba.</p></div>
+        <div class="game-filters glass">
+          <div class="filter-search"><svg class="icon"><use href="#i-search"/></svg><label for="game-search" class="sr-only">Buscar jogos</label><input type="search" id="game-search" placeholder="Buscar jogos…" autocomplete="off"></div>
+          <div class="chips" id="genre-filters" role="group" aria-label="Categorias de jogos"></div>
+          <label class="game-collection"><span class="sr-only">Filtrar por coleção</span><select id="game-collection"><option value="">Todas as coleções</option></select></label>
+        </div>
+        <div class="catalog-meta">
+          <p class="list-count" id="games-count" role="status" tabindex="-1"></p>
+          <p class="catalog-order" id="games-order" title="Ordem aproximada por reconhecimento">Mais famosos primeiro</p>
+        </div>
+        <div class="library-grid" id="games-grid" role="region" aria-label="Jogos do catálogo" aria-describedby="games-count games-order" tabindex="-1"></div>
+      </section>
+
+      <section id="view-random" data-page="random" class="view" aria-labelledby="random-title">
+        <div class="page-heading"><p class="eyebrow"><span></span> MODO SURPRESA</p><h1 id="random-title">Random Games<span>.</span></h1><p>Na dúvida sobre o que jogar? Deixe a escolha com a sorte.</p></div>
+        <div class="random-layout">
+          <div class="random-machine glass">
+            <div class="radar-dice" id="random-dice" aria-hidden="true"><span></span><svg class="icon"><use href="#i-dice"/></svg></div>
+            <h2>Qual vai ser o próximo?</h2>
+            <p>Um sorteio, qualquer jogo da biblioteca.</p>
+            <button class="btn btn-primary draw-btn" id="draw-game" type="button"><svg class="icon"><use href="#i-dice"/></svg><span>Sortear jogo</span></button>
+          </div>
+          <div class="random-output glass" id="random-output">
+            <p class="eyebrow"><span></span> RESULTADO DO SORTEIO</p>
+            <div id="random-slot"></div><p class="sr-only" id="random-status" role="status"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-apps" data-page="apps" class="view" aria-labelledby="apps-title">
+        <div class="page-heading"><p class="eyebrow"><span></span> SEUS FAVORITOS</p><h1 id="apps-title">Apps<span>.</span></h1><p>Comunidades, música e conteúdo a um clique de distância.</p></div>
+        <div class="card-grid app-grid" id="app-grid"></div>
+      </section>
+
+      <section id="view-musica" data-page="musica" data-cover-mode="on" class="view" aria-labelledby="music-title">
+        <div class="sound-room-cover" aria-hidden="true" data-selected-cover></div>
+        <div class="sound-heading">
+          <div class="sound-title"><p class="eyebrow"><span></span> MÚSICA DO BL3SS</p><h1 id="music-title">BlessSounds<span>.</span></h1></div>
+          <div class="sound-actions" role="group" aria-label="Personalização e proteção">
+            <button class="sound-source glass" type="button" data-studio-open="temas" aria-haspopup="dialog"><svg class="icon" aria-hidden="true"><use href="#i-palette"/></svg><span>Temas</span></button>
+            <button class="sound-source glass" type="button" data-studio-open="wallpapers" aria-haspopup="dialog"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><span>Wallpapers</span></button>
+            <button class="sound-source glass sound-shield" type="button" data-studio-open="protecao" aria-haspopup="dialog" title="Proteção sempre ativa"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span>Proteção</span></button>
+          </div>
+          <button class="sound-source sound-import glass" type="button" data-audio-import aria-label="Adicionar áudios do dispositivo" aria-controls="music-files"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg><span>Adicionar áudios</span></button>
+          <input id="music-files" type="file" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.oga,.opus,.flac,.webm,.aif,.aiff" multiple hidden>
+        </div>
+        <div class="music-layout">
+          <section class="sound-pane music-player glass" id="music-player" tabindex="-1" aria-labelledby="music-player-heading" data-mode="catalogo">
+            <div class="sound-player-cover" aria-hidden="true" data-selected-cover></div>
+            <div class="bless-record" aria-hidden="true"><svg class="icon"><use href="#i-blesssounds"/></svg></div>
+            <header class="music-player-label"><span class="sound-emblem"><svg class="icon" aria-hidden="true"><use href="#i-blesssounds"/></svg></span><div><p class="eyebrow" id="music-mode-label">FAIXA DO CATÁLOGO</p><h2 id="music-player-heading">BlessSounds</h2></div></header>
+            <div class="sound-now" id="music-now" hidden>
+              <div class="sound-now-art" id="music-now-art" aria-hidden="true"></div>
+              <div class="sound-meta"><p class="sound-genre" id="music-genre"></p><span class="sound-access" id="music-access" hidden></span><h3 id="music-track-title"></h3><p id="music-artist"></p></div>
+              <div class="sound-stats"><div class="sound-duration" id="music-time-box"><span>Duração</span><time id="music-duration"></time></div><div class="sound-duration sound-plays" id="music-plays-box" hidden><span>Reproduções</span><span id="music-plays"></span></div></div>
+            </div>
+            <div class="bless-stream" id="bless-stream" role="group" aria-label="Player de música online" aria-busy="false" hidden>
+              <div class="bless-stream-wait" aria-hidden="true"><svg class="icon"><use href="#i-wave"/></svg><span>Carregando player…</span></div>
+            </div>
+            <div class="bless-deck">
+              <div class="bless-timeline" id="bless-timeline" hidden>
+                <label class="sr-only" for="bless-seek">Posição da música</label>
+                <time id="bless-elapsed">0:00</time><input id="bless-seek" type="range" min="0" max="1" step="0.1" value="0" disabled><time id="bless-total">0:00</time>
+              </div>
+              <div class="bless-transport">
+                <span class="bless-stream-brand" id="bless-stream-brand" hidden><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg> Via Audiomack</span>
+                <div class="sound-track-controls" aria-label="Controles de faixa">
+                  <button type="button" class="icon-btn" id="music-prev" aria-label="Faixa anterior" title="Faixa anterior" disabled><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
+                  <button type="button" class="btn btn-primary bless-play-action" id="bless-play" aria-label="Play" title="Reproduzir arquivo local" hidden><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span id="bless-play-text">Play</span></button>
+                  <button type="button" class="icon-btn" id="music-next" aria-label="Próxima faixa" title="Próxima faixa" disabled><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
+                </div>
+                <button class="icon-btn" id="bless-stream-reload" type="button" aria-label="Recarregar o player online" title="Recarregar o player online" aria-controls="bless-stream" hidden><svg class="icon" aria-hidden="true"><use href="#i-reset"/></svg></button>
+                <button class="icon-btn bless-mute" id="bless-mute" type="button" aria-label="Silenciar áudio" aria-pressed="false" title="Silenciar áudio" hidden><svg class="icon" aria-hidden="true"><use href="#i-volume"/></svg></button>
+              </div>
+            </div>
+            <audio id="bless-audio" preload="metadata" hidden></audio>
+            <p class="sound-status" id="music-status" role="status">Escolha uma faixa para ouvir no BlessSounds.</p>
+          </section>
+
+          <section class="sound-pane music-browser glass" aria-labelledby="music-library-heading">
+            <header class="sound-library-head">
+              <div class="sound-library-title">
+                <div class="bless-library-title"><p class="eyebrow">BIBLIOTECA</p><h2 id="music-library-heading">Explore por gênero</h2></div>
+                <div class="bless-library-tabs" role="group" aria-label="Biblioteca do BlessSounds">
+                  <button class="bless-tab" id="music-show-catalog" type="button" aria-pressed="true" aria-controls="music-carousel"><span>Catálogo</span></button>
+                  <button class="bless-tab" id="music-show-local" type="button" aria-pressed="false" aria-controls="music-local"><svg class="icon" aria-hidden="true"><use href="#i-music"/></svg><span>Meus áudios</span></button>
+                </div>
+                <div class="sound-arrows" id="music-arrows" aria-label="Navegar pelas listas"><span id="music-lane-position" aria-hidden="true"></span><button type="button" class="icon-btn sound-previous" id="music-lane-prev" aria-controls="music-carousel" aria-label="Ver lista anterior" title="Lista anterior" disabled><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button><button type="button" class="icon-btn" id="music-lane-next" aria-controls="music-carousel" aria-label="Ver próxima lista" title="Próxima lista" disabled><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button></div>
+              </div>
+              <form id="music-form" role="search" aria-label="Pesquisar músicas">
+                <label class="sr-only" for="music-search">Pesquisar música, artista ou gênero</label>
+                <div class="sound-searchbox"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input type="search" id="music-search" placeholder="Pesquisar música ou artista…" autocomplete="off" maxlength="270" spellcheck="false"><button class="sound-clear" type="button" id="music-clear" aria-label="Limpar busca" title="Limpar busca" hidden><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+              </form>
+              <div class="sound-features" id="music-features" hidden>
+                <h3 id="music-features-heading"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg>Destaques</h3>
+                <ul id="music-highlights" tabindex="0" aria-labelledby="music-features-heading"></ul>
+                <button class="sound-feature-more icon-btn" type="button" id="music-highlight-more" aria-controls="music-highlights" aria-label="Ver mais destaques" title="Ver mais destaques" hidden><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+              </div>
+            </header>
+            <div class="sound-shelf" id="music-carousel" role="region" tabindex="0" aria-label="Listas de música por gênero. Role para os lados para navegar."></div>
+            <div class="sound-search-view" id="music-results" hidden>
+              <div class="sound-results-head"><p id="music-result-count" role="status"></p></div>
+              <ul id="music-result-list" class="sound-track-list" aria-label="Resultados da busca"></ul>
+              <div id="music-search-empty" class="sound-empty" hidden><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><strong>Nenhuma faixa encontrada</strong><p>Tente outro nome de música, artista ou gênero.</p></div>
+            </div>
+            <div class="sound-search-view bless-local-list" id="music-local" hidden>
+              <div class="sound-results-head"><p id="bless-file-count" role="status">0 arquivos</p><button type="button" class="bless-clear" id="bless-clear-list" hidden>Limpar fila</button></div>
+              <ul id="bless-file-list" class="sound-track-list" aria-label="Áudios do dispositivo"></ul>
+              <div class="sound-empty" id="bless-file-empty" hidden><span class="bless-empty-emblem"><svg class="icon" aria-hidden="true"><use href="#i-blesssounds"/></svg></span><strong>Ouça seus próprios arquivos</strong><p>Adicione MP3, WAV, OGG ou outro formato aceito pelo seu navegador. Nada é enviado.</p><button type="button" class="btn btn-primary" data-audio-import><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg> Escolher áudios</button></div>
+              <div class="sound-empty" id="bless-file-no-match" hidden><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><strong>Nenhum arquivo com esse nome</strong><p>Tente outro termo ou limpe a busca.</p></div>
+            </div>
+            <footer class="sound-library-foot"><span id="music-library-count"></span><span id="music-library-note">Catálogo BlessSounds</span></footer>
+            <noscript><p class="sound-status">Ative o JavaScript para usar os players do BlessSounds.</p></noscript>
+          </section>
+        </div>
+      </section>
+
+      <section id="view-configuracoes" data-page="configuracoes" class="view" aria-labelledby="settings-title">
+        <div class="page-heading"><p class="eyebrow"><span></span> CONTROLE DO HUB</p><h1 id="settings-title">Configurações<span>.</span></h1><p>Seu visual, suas regras. Suas preferências ficam salvas neste navegador.</p></div>
+        <div id="studio-slot">
+          <section class="prefs-studio glass" id="prefs-studio" aria-label="Temas, wallpapers e proteção">
+            <div class="studio-tabs" role="tablist" aria-label="Personalização do BL3SS">
+              <button id="studio-tab-temas" type="button" role="tab" data-studio-tab="temas" aria-selected="true" aria-controls="studio-temas" tabindex="0"><svg class="icon" aria-hidden="true"><use href="#i-palette"/></svg>Temas</button>
+              <button id="studio-tab-wallpapers" type="button" role="tab" data-studio-tab="wallpapers" aria-selected="false" aria-controls="studio-wallpapers" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg>Wallpapers</button>
+              <button id="studio-tab-protecao" type="button" role="tab" data-studio-tab="protecao" aria-selected="false" aria-controls="studio-protecao" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Proteção</button>
+            </div>
+
+            <div class="studio-panel" id="studio-temas" data-studio-panel="temas" role="tabpanel" aria-labelledby="studio-tab-temas" tabindex="0">
+              <div class="studio-intro"><div><p class="eyebrow">CORES DO HUB</p><h2>Seu tema, do seu jeito</h2></div><span class="studio-tag" id="studio-theme-active">BL3SS Azul</span></div>
+              <div class="studio-theme-grid" id="theme-options" role="group" aria-label="Temas prontos"></div>
+              <div class="studio-columns">
+                <section class="studio-card" aria-labelledby="accent-label">
+                  <div class="setting-row"><h3 id="accent-label">Destaque</h3><p id="active-accent" class="setting-desc"></p></div>
+                  <div class="swatches" id="accent-options" role="group" aria-labelledby="accent-label"></div>
+                  <label class="studio-color" for="accent-picker"><span><strong>Cor personalizada</strong><output id="accent-hex" for="accent-picker">#57e4ff</output></span><input type="color" id="accent-picker" data-appearance="accentCustom" value="#57e4ff"></label>
+                </section>
+                <section class="studio-card" aria-label="Superfícies e transparência">
+                  <div class="studio-colors"><label class="studio-color" for="surface-picker"><span><strong>Painéis</strong><output id="surface-hex" for="surface-picker">#0a172d</output></span><input type="color" id="surface-picker" data-appearance="surface" value="#0a172d"></label><label class="studio-color" for="background-picker"><span><strong>Fundo</strong><output id="background-hex" for="background-picker">#071222</output></span><input type="color" id="background-picker" data-appearance="background" value="#071222"></label></div>
+                  <div class="setting-block studio-blur"><div class="setting-row"><label class="setting-name" for="blur-range">Desfoque dos painéis</label><output id="blur-output" for="blur-range">16 px</output></div><input type="range" id="blur-range" min="0" max="30" step="1" value="16"><div class="range-captions"><span>Sem desfoque</span><span>Mais desfoque</span></div></div>
+                </section>
+              </div>
+              <p class="studio-note">As cores mudam no site todo. Para ver apenas a cor de fundo, selecione <strong>Cor sólida</strong> em Wallpapers. Tons muito claros nos painéis e no fundo são suavizados para manter a leitura.</p>
+            </div>
+
+            <div class="studio-panel" id="studio-wallpapers" data-studio-panel="wallpapers" role="tabpanel" aria-labelledby="studio-tab-wallpapers" tabindex="0" hidden>
+              <div class="studio-intro"><div><p class="eyebrow">FUNDO DO HUB</p><h2>Wallpapers</h2></div><span class="studio-tag" id="studio-wall-active">Cidade azul</span></div>
+              <h3 id="animated-wall-label" class="studio-caption"><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg>Animados</h3>
+              <div class="wall-choices studio-walls" id="animated-wall-choices" role="group" aria-labelledby="animated-wall-label"></div>
+              <h3 id="wallpaper-label" class="studio-caption"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg>Estáticos</h3>
+              <div class="wall-choices studio-walls" id="wall-choices" role="group" aria-labelledby="wallpaper-label"></div>
+              <div class="studio-columns studio-wall-tools">
+                <section class="studio-card wall-upload" aria-label="Sua imagem"><label class="btn btn-secondary upload-btn" for="bg-upload"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg> Usar minha imagem</label><input id="bg-upload" type="file" class="sr-only" accept="image/*"><p class="setting-desc" id="wall-file-desc">Envie uma imagem estática em JPG, PNG ou WebP.</p></section>
+                <section class="studio-card studio-motion" aria-label="Movimento">
+                  <div class="setting-row"><div><label class="setting-name" for="wall-motion-toggle">Animar wallpapers</label><p class="setting-desc" id="wall-motion-note">Movimento nos fundos animados.</p></div><label class="switch"><input id="wall-motion-toggle" type="checkbox" role="switch" aria-describedby="wall-motion-note" checked><span></span></label></div>
+                  <div class="setting-block setting-row"><div><label for="motion-toggle" class="setting-name">Animações da interface</label><p class="setting-desc">Controla transições e também pode pausar o fundo.</p></div><label class="switch"><input id="motion-toggle" type="checkbox" role="switch"><span></span></label></div>
+                  <div class="setting-block setting-row"><div><label for="music-cover-toggle" class="setting-name">Usar capa da faixa em Música</label><p class="setting-desc">Desative para mostrar apenas o wallpaper atrás do player.</p></div><label class="switch"><input id="music-cover-toggle" type="checkbox" role="switch" checked><span></span></label></div>
+                </section>
+              </div>
+            </div>
+
+            <div class="studio-panel" id="studio-protecao" data-studio-panel="protecao" role="tabpanel" aria-labelledby="studio-tab-protecao" tabindex="0" hidden>
+              <div class="studio-intro"><div><p class="eyebrow">PROTEÇÃO DO BL3SS</p><h2>Sem pop-ups dos jogos</h2></div><span class="studio-tag guard-tag"><span></span>Sempre ativa</span></div>
+              <div class="studio-columns studio-guard-grid">
+                <section class="studio-card studio-guard-card"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><div><h3>Interface sem anúncios</h3><p>O BL3SS não exibe anúncios próprios, oculta espaços marcados como publicidade e bloqueia scripts externos na interface.</p></div></section>
+                <section class="studio-card studio-guard-card"><svg class="icon" aria-hidden="true"><use href="#i-game"/></svg><div><h3>Pop-ups de jogos bloqueados</h3><p>O iframe impede que o jogo abra janelas ou novas abas e redirecione a aba do BL3SS.</p></div></section>
+              </div>
+              <p class="studio-note studio-guard-note"><strong>Limite da proteção:</strong> banners e vídeos dentro dos jogos e do player de música de terceiros ainda podem aparecer. O player em outra aba mantém a proteção para jogos compatíveis. Ao abrir o endereço original, o site do jogo passa a controlar essa aba.</p>
+            </div>
+            <p class="studio-feedback" id="studio-feedback" role="status" aria-live="polite"></p>
+          </section>
+        </div>
+        <div class="settings-grid">
+          <section class="setting-panel glass">
+            <div class="panel-heading"><svg class="icon"><use href="#i-user"/></svg><h2>Seu perfil</h2></div>
+            <form class="setting-block" id="name-form"><label class="setting-name" for="user-name">Nome de usuário</label><div class="name-field"><input class="text-input" id="user-name" type="text" maxlength="26" placeholder="Como podemos te chamar?" autocomplete="nickname"><button class="btn btn-primary" type="submit">Salvar nome</button></div><p class="setting-desc">O nome aparece na saudação da página inicial.</p></form>
+          </section>
+          <section class="setting-panel glass restore-panel">
+            <div class="panel-heading"><svg class="icon"><use href="#i-reset"/></svg><h2>Preferências locais</h2></div>
+            <div class="setting-block"><p class="setting-desc">Restaure o visual e o perfil originais. Seus atalhos não mudam.</p><button class="btn btn-secondary" id="reset-prefs" type="button"><svg class="icon"><use href="#i-reset"/></svg> Restaurar padrões</button></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <dialog id="modal" class="dialog" aria-labelledby="modal-title">
+    <div class="dialog-heading"><div><p class="eyebrow" id="modal-label"></p><h2 id="modal-title"></h2></div><button class="icon-btn" id="close-modal" type="button" aria-label="Fechar" title="Fechar"><svg class="icon"><use href="#i-x"/></svg></button></div>
+    <div id="modal-body"></div>
+  </dialog>
+  <div id="toast" class="toast glass" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">Ative o JavaScript no navegador para usar o BL3SS.</p></noscript>
+
+
+</body>
+</html>
